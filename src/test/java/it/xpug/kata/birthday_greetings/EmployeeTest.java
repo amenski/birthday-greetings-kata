@@ -1,6 +1,8 @@
 package it.xpug.kata.birthday_greetings;
 import static org.junit.Assert.*;
 
+import it.xpug.kata.birthday_greetings.domain.model.Employee;
+import it.xpug.kata.birthday_greetings.domain.model.XDate;
 import org.junit.*;
 
 

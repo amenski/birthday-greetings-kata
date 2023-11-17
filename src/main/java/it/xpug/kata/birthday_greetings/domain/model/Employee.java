@@ -1,13 +1,13 @@
-package it.xpug.kata.birthday_greetings;
+package it.xpug.kata.birthday_greetings.domain.model;
 
 import java.text.ParseException;
 
 public class Employee {
 
-	private XDate birthDate;
-	private String lastName;
-	private String firstName;
-	private String email;
+	private final XDate birthDate;
+	private final String lastName;
+	private final String firstName;
+	private final String email;
 
 	public Employee(String firstName, String lastName, String birthDate, String email) throws ParseException {
 		this.firstName = firstName;
