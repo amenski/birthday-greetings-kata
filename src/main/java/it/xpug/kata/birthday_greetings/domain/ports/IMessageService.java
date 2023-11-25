@@ -1,4 +1,4 @@
-package it.xpug.kata.birthday_greetings.adapter;
+package it.xpug.kata.birthday_greetings.domain.ports;
 
 import it.xpug.kata.birthday_greetings.domain.model.Message;
 

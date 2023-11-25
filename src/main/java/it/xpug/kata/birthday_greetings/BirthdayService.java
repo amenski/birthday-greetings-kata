@@ -1,21 +1,12 @@
 package it.xpug.kata.birthday_greetings;
 
-import it.xpug.kata.birthday_greetings.adapter.IMessageService;
+import it.xpug.kata.birthday_greetings.domain.ports.IMessageService;
 import it.xpug.kata.birthday_greetings.domain.model.Employee;
+import it.xpug.kata.birthday_greetings.domain.model.Message;
 import it.xpug.kata.birthday_greetings.domain.model.XDate;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
-import java.text.ParseException;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
 public class BirthdayService {
 
@@ -36,7 +27,7 @@ public class BirthdayService {
 				String recipient = employee.getEmail();
 				String body = String.format("Happy Birthday, dear %s!", employee.getFirstName());
 				String subject = "Happy Birthday!";
-				it.xpug.kata.birthday_greetings.domain.model.Message message = new it.xpug.kata.birthday_greetings.domain.model.Message("sender@here.com", recipient, subject, body);
+				Message message = new Message("sender@here.com", recipient, subject, body);
 				this.messageService.send(message);
 			}
 		}

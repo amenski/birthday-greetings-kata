@@ -1,6 +1,7 @@
 package it.xpug.kata.birthday_greetings.adapter;
 
 import it.xpug.kata.birthday_greetings.domain.model.Message;
+import it.xpug.kata.birthday_greetings.domain.ports.IMessageService;
 
 import javax.mail.Session;
 import javax.mail.Transport;

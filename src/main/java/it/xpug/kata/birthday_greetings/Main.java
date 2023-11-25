@@ -1,6 +1,6 @@
 package it.xpug.kata.birthday_greetings;
 
-import it.xpug.kata.birthday_greetings.adapter.IMessageService;
+import it.xpug.kata.birthday_greetings.domain.ports.IMessageService;
 import it.xpug.kata.birthday_greetings.adapter.MailMessageService;
 import it.xpug.kata.birthday_greetings.domain.model.XDate;
 
