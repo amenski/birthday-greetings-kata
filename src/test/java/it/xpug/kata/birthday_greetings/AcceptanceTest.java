@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import it.xpug.kata.birthday_greetings.adapter.FileEmployeeRepository;
 import it.xpug.kata.birthday_greetings.adapter.MailMessageService;
 import it.xpug.kata.birthday_greetings.domain.model.XDate;
+import it.xpug.kata.birthday_greetings.domain.usecase.BirthDayGreetingsUseCase;
 import org.junit.*;
 
 import com.dumbster.smtp.*;
@@ -13,13 +14,13 @@ import com.dumbster.smtp.*;
 public class AcceptanceTest {
 
 	private static final int NONSTANDARD_PORT = 9999;
-	private BirthdayService birthdayService;
+	private BirthDayGreetingsUseCase birthDayGreetingsUseCase;
 	private SimpleSmtpServer mailServer;
 
 	@Before
 	public void setUp() {
 		mailServer = SimpleSmtpServer.start(NONSTANDARD_PORT);
-		birthdayService = new BirthdayService(new MailMessageService("", NONSTANDARD_PORT), new FileEmployeeRepository( new FileParser("employee_data.txt")));
+		birthDayGreetingsUseCase = new BirthDayGreetingsUseCase(new MailMessageService("", NONSTANDARD_PORT), new FileEmployeeRepository( new FileParser("employee_data.txt")));
 	}
 
 	@After
@@ -31,7 +32,7 @@ public class AcceptanceTest {
 	@Test
 	public void willSendGreetings_whenItsSomebodysBirthday() throws Exception {
 
-		birthdayService.sendGreetings(new XDate("2008/10/08"));
+		birthDayGreetingsUseCase.sendGreetings(new XDate("2008/10/08"));
 
 		assertEquals("message not sent?", 1, mailServer.getReceivedEmailSize());
 		SmtpMessage message = (SmtpMessage) mailServer.getReceivedEmail().next();
@@ -44,7 +45,7 @@ public class AcceptanceTest {
 
 	@Test
 	public void willNotSendEmailsWhenNobodysBirthday() throws Exception {
-		birthdayService.sendGreetings(new XDate("2008/01/01"));
+		birthDayGreetingsUseCase.sendGreetings(new XDate("2008/01/01"));
 
 		assertEquals("what? messages?", 0, mailServer.getReceivedEmailSize());
 	}

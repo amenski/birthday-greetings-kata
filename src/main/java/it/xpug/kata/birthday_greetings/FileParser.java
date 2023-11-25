@@ -9,14 +9,9 @@ import java.util.List;
 
 public class FileParser {
 
-    private final String fileName;
+    private final List<Employee> employeeList = new ArrayList<>();
 
     public FileParser(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public List<Employee> getEmployeeList() {
-        List<Employee> employeeList = new ArrayList<>();
         try {
             BufferedReader in = new BufferedReader(new FileReader(fileName));
             String str = "";
@@ -28,6 +23,9 @@ public class FileParser {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        return employeeList;
+    }
+
+    public List<Employee> getEmployeeList() {
+        return this.employeeList;
     }
 }
