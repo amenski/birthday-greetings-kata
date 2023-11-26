@@ -1,6 +1,6 @@
 package it.xpug.kata.birthday_greetings;
 
-import it.xpug.kata.birthday_greetings.adapter.FileEmployeeRepository;
+import it.xpug.kata.birthday_greetings.adapter.EmployeeFileRepository;
 import it.xpug.kata.birthday_greetings.domain.model.XDate;
 import it.xpug.kata.birthday_greetings.domain.ports.IEmployeeRepository;
 import it.xpug.kata.birthday_greetings.domain.model.Employee;
@@ -14,10 +14,10 @@ import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 import static org.mockito.Mockito.*;
 
-public class FileEmployeeRepositoryTest {
+public class EmployeeFileRepositoryTest {
 
     private final FileParser fileParser = Mockito.mock(FileParser.class);
-    private final IEmployeeRepository employeeRepository = new FileEmployeeRepository(fileParser);
+    private final IEmployeeRepository employeeRepository = new EmployeeFileRepository(fileParser);
 
     @Test
     public void findEmployeesBornOn_empty() {

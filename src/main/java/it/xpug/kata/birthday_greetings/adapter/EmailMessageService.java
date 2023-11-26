@@ -8,12 +8,12 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-public class MailMessageService implements IMessageService {
+public class EmailMessageService implements IMessageService {
 
     private final String smtpHost;
     private final int smtpPort;
 
-    public MailMessageService(String smtpHost, int smtpPort) {
+    public EmailMessageService(String smtpHost, int smtpPort) {
         this.smtpHost = smtpHost;
         this.smtpPort = smtpPort;
     }

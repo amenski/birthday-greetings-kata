@@ -2,8 +2,8 @@ package it.xpug.kata.birthday_greetings;
 
 import static org.junit.Assert.*;
 
-import it.xpug.kata.birthday_greetings.adapter.FileEmployeeRepository;
-import it.xpug.kata.birthday_greetings.adapter.MailMessageService;
+import it.xpug.kata.birthday_greetings.adapter.EmployeeFileRepository;
+import it.xpug.kata.birthday_greetings.adapter.EmailMessageService;
 import it.xpug.kata.birthday_greetings.domain.model.XDate;
 import it.xpug.kata.birthday_greetings.domain.usecase.BirthDayGreetingsUseCase;
 import org.junit.*;
@@ -20,7 +20,7 @@ public class AcceptanceTest {
 	@Before
 	public void setUp() {
 		mailServer = SimpleSmtpServer.start(NONSTANDARD_PORT);
-		birthDayGreetingsUseCase = new BirthDayGreetingsUseCase(new MailMessageService("", NONSTANDARD_PORT), new FileEmployeeRepository( new FileParser("employee_data.txt")));
+		birthDayGreetingsUseCase = new BirthDayGreetingsUseCase(new EmailMessageService("", NONSTANDARD_PORT), new EmployeeFileRepository( new FileParser("employee_data.txt")));
 	}
 
 	@After

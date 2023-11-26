@@ -21,11 +21,8 @@ public class BirthDayGreetingsUseCase {
 	public void sendGreetings(XDate xDate) throws Exception {
 		List<Employee> employeeList = employeeRepository.findEmployeesBornOn(xDate);
 		for(Employee employee: employeeList) {
-			String recipient = employee.getEmail();
 			String body = String.format("Happy Birthday, dear %s!", employee.getFirstName());
-			String subject = "Happy Birthday!";
-			Message message = new Message("sender@here.com", recipient, subject, body);
-			this.messageService.send(message);
+			this.messageService.send(new Message("sender@here.com",	employee.getEmail(), "Happy Birthday!", body));
 		}
 	}
 }

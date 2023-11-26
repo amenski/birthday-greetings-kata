@@ -2,19 +2,17 @@ package it.xpug.kata.birthday_greetings.adapter;
 
 import it.xpug.kata.birthday_greetings.FileParser;
 import it.xpug.kata.birthday_greetings.domain.model.Employee;
-import it.xpug.kata.birthday_greetings.domain.model.Message;
 import it.xpug.kata.birthday_greetings.domain.model.XDate;
 import it.xpug.kata.birthday_greetings.domain.ports.IEmployeeRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FileEmployeeRepository implements IEmployeeRepository {
+public class EmployeeFileRepository implements IEmployeeRepository {
 
     private final FileParser fileParser;
 
-    public FileEmployeeRepository(FileParser fileParser) {
+    public EmployeeFileRepository(FileParser fileParser) {
         this.fileParser = fileParser;
     }
 
